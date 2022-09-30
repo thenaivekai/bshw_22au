@@ -1,0 +1,7 @@
+Gender <- c("Men","Women")
+Frequent_Binge_Drinker <- c("Yes","No")
+data <- c(1630,1684,5550,8232)
+table <- expand.grid(Gender=Gender, Frequent_Binge_Drinker=Frequent_Binge_Drinker)
+table <- cbind(table, count=data)
+result <- xtabs(count~Frequent_Binge_Drinker+Gender, table)
+barplot(prop.table(result,2), legend=T)
